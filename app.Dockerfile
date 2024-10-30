@@ -4,5 +4,6 @@ COPY . /app
 RUN pip install -r requirements.txt
 EXPOSE 2044
 ENV DEFAULT = "index.html"
-RUN curl(https://github.com/almatsy159/apps/api) >> ./api.json
+ENV API = "./api.json"
+RUN curl(https://raw.githubusercontent.com/almatsy159/apps/main/api/api.json) >> ${API}
 CMD ["python3","app.py"]
