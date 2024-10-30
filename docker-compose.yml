@@ -1,0 +1,11 @@
+version: "3"
+services:
+  myapp:
+    image: monapp
+    ports:
+      - "2044:2044"
+    networks:
+      - monreseau
+
+networks:
+  monreseau: 
