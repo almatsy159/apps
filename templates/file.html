@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>app flask : {{title}}</title>
+</head>
+<body>
+    <p>
+        <ul>Liste:
+        {% for k,v in data.items() %}
+            <li><a href={{k}}>{{v}}</a></li>
+        {% endfor %}
+        </ul>
+
+    </p>    
+</body>

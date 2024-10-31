@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>app flask : {{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <script src="{{ url_for('static',filename='js/main.js')}}"></script>
+    <!-- action="" => route actuelle-->
+    <!-- action = "/route"=> route definie-->
+    <form action="{{ url_for('check_form') }}" method="get" class="form-example">
+        <div class="form-example">
+            <label for="name">Enter your name : </label>
+            <input type="text" name="login" id="login" required />
+        </div>
+        <div class="form-example">
+            <label for="pwd">enter your password : : </label>
+            <input type="" name="pwd" id="pwd"/>
+        </div>
+            <div class="form-example">
+            <input type="submit" value="connect!" />
+        </div>
+    </form>
+    <a href="{{ url_for('login') }}">connection</a>
+    <p>
+        <ul>Liste:
+        {% for k in data %}
+            <li><a href={{k}}>{{v}}</a></li>
+        {% endfor %}
+        </ul>
+
+    </p>    
+</body>
