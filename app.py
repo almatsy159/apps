@@ -133,21 +133,30 @@ def inscription():
     return "hi"
 
 
+@app.route("/db.html")
 @app.route("/db")
 def db(table=""):
     
-    db = mc.Data
+    db = DB()
     if table == "":
-        req = "SHOWS TABLES;"
+        #req = "SHOW TABLES"
+        res = db.struct_db()
     else :
         req = f"SELECT * FROM {table};"
         
-    c = mc.cursor()
-    c.execute(req)
-    data = c.fetchall()
-    c.close()
+        res = db.make_req(req)
     
-    return rt("db.html",table=table)
+    data = res
+    
+    return rt("db.html",table=table,data=data)
+
+@app.route("/db.html/<table>")
+@app.route("/db/<table>")
+@app.route("/<table>")
+def table(table="apps"):
+    print(table)
+    
+    return db(table)
 
 #g(f)  or g(f(x))
 def wrapper(f,lst):
@@ -188,6 +197,7 @@ class DB:
     
     def commit(self):
         self.conn.commit()
+        
     def make_req(self,req="select * from program;"):
         cursor = self.conn.cursor()
         cursor.execute(req)
@@ -210,6 +220,7 @@ class DB:
         tables = self.make_req(i2)
         res = {}
         for t in tables:
+            print(t)
             #print(t[0])
             res[t] = []
             i3 = f"SHOW COLUMNS from {t[0]};"

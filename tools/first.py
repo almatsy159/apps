@@ -7,8 +7,9 @@ def first():
 
 if __name__ == "__main__":
     res = first()
+    
 else :
-    res = f"in {__name__}"
+    res = f"first has been called"
     #tooler = "my tool result"
 
 
