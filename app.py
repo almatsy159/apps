@@ -186,6 +186,7 @@ class DB:
         self.db = db
         self.user = user
         self.host = host
+        self.port = port
         self.connect(pwd)
         #self.struct = self.struct_db()
         #print(self.struct)
@@ -193,7 +194,7 @@ class DB:
     def connect(self,pwd,user=None):
         if user == None:
             user = self.user
-        self.conn = mc.connect(user=user,host=self.host,passwd=pwd,database=self.db)
+        self.conn = mc.connect(user=user,host=self.host,passwd=pwd,database=self.db,port=self.port)
     
     def commit(self):
         self.conn.commit()
