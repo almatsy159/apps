@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: azure;
+    display: grid;
+}
+h1{
+    color: bisque;
+}
+
+div section {
+    background-color: white;
+}
+
+div>menu{
+    background-color: blueviolet;
+}
+
+section,main menu{
+    border: 2px;
+    border-color: black;
+}
+
+.frame{
+    background-color: aliceblue;
+}
+/*
+.canvas:hover{
+    box-shadow: inset;
+}*/
+.text{
+    background:red;
+}
+
+.login{
+    background-color: gold;
+}

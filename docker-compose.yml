@@ -1,0 +1,33 @@
+version: "3"
+services:
+  master:
+    build:
+      context: .
+      dockerfile: ./master.Dockerfile
+    working_dir: /root/playbooks
+    volumes:
+      - /apps/playbooks:/root/playbooks
+      - /apps/config:/etc/ansible
+    command: tail -f /dev/null
+
+  app:
+      build:
+        context: .
+        dockerfile: ./app.Dockerfile
+      ports:
+        - 3000:3000
+
+# can setup env
+  db:
+    build: 
+      context: .
+      dockerfile: ./db.Dockerfile
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - db/var/lib/mysql
+
+volumes:
+  db:
