@@ -182,7 +182,7 @@ def get_name_from_path(path):
     return res
 
 class DB:
-    def __init__(self,user=s.LOGIN,pwd=s.PWD,host=s.HOST,db=s.DB):
+    def __init__(self,user=s.LOGIN,pwd=s.PWD,host=s.HOST,db=s.DB,port=s.PORT):
         self.db = db
         self.user = user
         self.host = host
