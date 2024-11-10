@@ -4,30 +4,52 @@ services:
     build:
       context: .
       dockerfile: ./master.Dockerfile
-    working_dir: /root/playbooks
+    working_dir: /root
     volumes:
-      - /apps/playbooks:/root/playbooks
-      - /apps/config:/etc/ansible
+      #- /apps/playbooks:/root/playbooks
+      #- /apps/config:/etc/ansible
+      - /apps/master/
     command: tail -f /dev/null
+    networks:
+      - network
 
   app:
-      build:
-        context: .
-        dockerfile: ./app.Dockerfile
-      ports:
-        - 3000:3000
+
+    build:
+      context: .
+      dockerfile: ./app.Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - network
+      
 
 # can setup env
   db:
+    image: mysql:9.1
+    container_name: mysql9
+    environment:
+      MYSQL_ROOT_PASSWORD : pwd
+      MYSQL_DATABASE : apps
+      MYSQL_USER : test
+      MYSQL_PASSWORD : pwd
+
     build: 
       context: .
       dockerfile: ./db.Dockerfile
+    
     ports:
-      - 3306:3306
+      - 3500:3306
     expose:
-      - 3306
-    volumes:
-      - db/var/lib/mysql
+      - 3500
+    #volumes:
+      #- /db:/var/lib/mysql
+    networks:
+      - network
 
 volumes:
   db:
+
+networks:
+  network:
+  

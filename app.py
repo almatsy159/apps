@@ -5,6 +5,7 @@ import re
 from modules.logger import logger as lg
 import mysql.connector as mc
 import setting as s
+
 app = Flask(__name__)
 
 @app.route("/check_form.html")
@@ -155,8 +156,7 @@ def db(table=""):
 @app.route("/<table>")
 def table(table="apps"):
     print(table)
-    
-    return db(table)
+    return table
 
 #g(f)  or g(f(x))
 def wrapper(f,lst):
@@ -215,6 +215,7 @@ class DB:
     def struct_db(self):
         res =""
         i1 = f"USE {self.db}"
+        print(self.make_req("SHOW DATABASES"))
         self.make_req(i1)
         i2 = "SHOW TABLES"
         
@@ -229,7 +230,11 @@ class DB:
             res[t].append(cols)
             
         return res
-            
+    
+    def create_table(table="apps",dict={"name":"varchar(20)","id":"INT(6)"}):
+        my_str = "" 
+        for k,v in dict.items() :
+            my_str.append(k)
     
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=5000,debug=True)
+    app.run(host="0.0.0.0",port=5000,debug=True,user="root")

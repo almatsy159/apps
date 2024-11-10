@@ -14,6 +14,7 @@ function draw() {
 
 
 //document.getElementById("login")
-body = document.body
-elements = body.elements
-console.log(elements)
+divs = document.querySelector("div")
+
+for d in divs :
+    d.style.background = "red"
