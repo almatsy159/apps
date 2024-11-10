@@ -16,5 +16,15 @@ function draw() {
 //document.getElementById("login")
 divs = document.querySelector("div")
 
-for d in divs :
+for(let d=0;d<divs.length;d++){
     d.style.background = "red"
+}
+
+
+//idea getting all child of body , getting all css property (style,pos,mvt) and for all childs 
+
+
+// body.[childs]
+
+// c as child :
+//    c <block> => all child of c that is <block>
