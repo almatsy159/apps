@@ -1,5 +1,6 @@
 .env
 __pycache__
-setting.*
+setting.py
 static/output.*
 static/output/
+master.Dockerfile

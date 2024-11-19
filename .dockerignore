@@ -2,8 +2,7 @@
 *.tmp  
 log.*
 *.md
-setting.*
-master.Dockerfile
+setting.py
 static/output.*
 static/output/
 
