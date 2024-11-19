@@ -1,0 +1,9 @@
+.env
+*.tmp  
+log.*
+*.md
+setting.*
+master.Dockerfile
+static/output.*
+static/output/
+
