@@ -1,4 +1,0 @@
-index
-{'links': {'/header.html': {'name': 'header.html', 'id': 0}, '/system.html': {'name': 'system.html', 'id': 2}, '/index.html': {'name': 'index.html', 'id': 3}, '/head.html': {'name': 'head.html', 'id': 4}, '/check_form.html': {'name': 'check_form.html', 'id': 5}, '/login.html': {'name': 'login.html', 'id': 6}, '/db.html': {'name': 'db.html', 'id': 7}, '/tools.html': {'name': 'tools.html', 'id': 8}, '/form.html': {'name': 'form.html', 'id': 9}, '/walk.html': {'name': 'walk.html', 'id': 10}, '/footer.html': {'name': 'footer.html', 'id': 11}}}
-
-  END 
