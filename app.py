@@ -169,10 +169,7 @@ def wrapper(f,lst):
 
 def get_tools():
     fpath = glob.glob("tools/*.py")
-    res = []
-    for f in fpath:
-        res.append(get_name_from_path(f))
-    return res
+    return [get_name_from_path(f) for f in fpath]
     
 def get_name_from_path(path):
     pattern = re.compile(r"(\w*\/)*(\w*).py")
