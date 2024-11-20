@@ -231,7 +231,7 @@ class DB:
             
         return res
     
-    def create_table(table="apps",dict={"name":"varchar(20)","id":"INT(6)"}):
+    def create_table(self,table="apps",dict={"name":"varchar(20)","id":"INT(6)"}):
         my_str = "" 
         for k,v in dict.items() :
             my_str.append(k)
