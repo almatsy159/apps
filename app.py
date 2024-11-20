@@ -192,7 +192,7 @@ class DB:
         #print(self.struct)
         
     def connect(self,pwd,user=None):
-        if user == None:
+        if user is None:
             user = self.user
         self.conn = mc.connect(user=user,host=self.host,passwd=pwd,database=self.db,port=self.port)
     
