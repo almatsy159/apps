@@ -185,6 +185,7 @@ class DB:
         self.host = host
         self.port = port
         self.connect(pwd)
+        self.init()
         #self.struct = self.struct_db()
         #print(self.struct)
         
@@ -195,6 +196,13 @@ class DB:
     
     def commit(self):
         self.conn.commit()
+        
+    def init(self):
+        with open("sql/db.sql","r") as dbfile :
+            init_req = dbfile.read()
+        res = self.make_req(init_req)
+        print(res)
+        
         
     def make_req(self,req="select * from program;"):
         cursor = self.conn.cursor()
@@ -234,4 +242,4 @@ class DB:
             my_str.append(k)
     
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=5000,debug=True,user="root")
+    app.run(host="0.0.0.0",port=5000,debug=True)
